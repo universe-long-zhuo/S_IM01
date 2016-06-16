@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-Hibernate/Hibernate Configuration DTD 3.0//EN//"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+	
+	<hibernate-configuration>
+		<session-factory>
+			<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+			<property name="connection.url">jdbc:mysql:///talking</property>
+			<property name="connection.username">root</property>
+			<property name="connection.password">123456</property>
+			
+			<!-- 这项设置会使Hibernate每次连接数据库，都将之前的数据清空 -->
+			<property name="hbm2ddl.auto">none</property>
+			
+			<!-- 产生统计信息 -->
+			<property name="generate_statistics">true</property>
+			
+			<!-- 打开二级缓存，默认就是true -->
+			<!-- <property name="cache.use_second_level_cache">true</property>
+			<property name="cache.provider_class">org.hibernate.cache.OSCacheProvider</property>
+			
+			<class-cache class="vaint.hibernate.domain.User"  usage="read-write" /> -->
+			<!-- 指定缓存类，也可以在该类配置文件中指定 -->
+			
+			<!-- 输出每次执行的sql语句 -->
+			<property name="show_sql">true</property>
+			
+			<!-- 方言，指明使用什么数据库 -->
+			<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+			
+			<mapping resource="vaint/wyt/db/User.hbm.xml"/>
+			<mapping resource="vaint/wyt/db/Friends.hbm.xml"/>
+			
+			
+			<!-- 事件监听 -->
+			<event type="save">
+				<listener class="org.hibernate.event.def.DefaultSaveOrUpdateEventListener"/>
+			</event>
+			
+			
+			
+		</session-factory>
+	</hibernate-configuration>
+	
