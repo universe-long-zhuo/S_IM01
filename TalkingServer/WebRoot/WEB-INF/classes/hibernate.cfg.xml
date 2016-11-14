@@ -6,9 +6,7 @@
 	<hibernate-configuration>
 		<session-factory>
 			<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-			<property name="connection.url">jdbc:mysql:///talking</property>
 			<property name="connection.username">root</property>
-			<property name="connection.password">123456</property>
 			
 			<!-- 这项设置会使Hibernate每次连接数据库，都将之前的数据清空 -->
 			<property name="hbm2ddl.auto">none</property>
